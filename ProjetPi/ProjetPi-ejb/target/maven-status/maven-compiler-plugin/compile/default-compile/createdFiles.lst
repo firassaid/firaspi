@@ -1,0 +1,4 @@
+esprit\pi\services\GestionService.class
+esprit\pi\services\IRemoteGestionService.class
+esprit\pi\entity\Event.class
+esprit\pi\entity\User.class

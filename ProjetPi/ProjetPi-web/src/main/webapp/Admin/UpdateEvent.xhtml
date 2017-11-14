@@ -1,0 +1,65 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                 xmlns:p="http://primefaces.org/ui"
+                  	template="/Admin/TemplateAdmin.xhtml">
+                
+                
+                
+             
+			<ui:define name="content">
+<h:form>
+			<p:dataTable border="2" value="#{serviceBean.JOF}"
+				var="jobOffer">
+				<f:facet name="header">Liste des events</f:facet>
+				
+				<p:column>
+					<f:facet name="header">Description</f:facet>
+					<h:outputText value="#{jobOffer.description}" />
+				</p:column>
+				
+				<p:column>
+					<f:facet name="header">Nom</f:facet>
+					<h:outputText value="#{jobOffer.nom}" />
+				</p:column>
+				
+				<p:column>
+					<f:facet name="header">Type</f:facet>
+					<h:outputText value="#{jobOffer.type}" />
+				</p:column>
+				<p:column>
+					<f:facet name="header">Details</f:facet>
+					<h:commandButton action="#{serviceBean.Delete(jobOffer)}"
+			value="delete" />
+					<h:commandButton value="Sélectionner">
+						<f:setPropertyActionListener value="#{jobOffer}"
+							target="#{serviceBean.selectedSS}" />
+						<f:setPropertyActionListener value="true"
+							target="#{serviceBean.renderReserver}" />
+					</h:commandButton>
+				</p:column>
+			</p:dataTable>
+</h:form>
+
+		<h:form rendered="#{serviceBean.renderReserver}"> 	
+      
+				 <p:outputLabel value="Description :" />
+				<p:inputText value="#{serviceBean.description}" />
+				<p:outputLabel value="Nom :" />
+				<p:inputText value="#{serviceBean.nom}" />
+				<p:outputLabel value="Duree :" />
+				<p:inputText value="#{serviceBean.duree}" />
+				<p:outputLabel value="Prix :" />
+				<p:inputText value="#{serviceBean.prix}" />
+				
+      	<h:commandButton action="#{serviceBean.modif()}"
+					value="Update" />
+
+      </h:form>
+ 
+      
+
+    </ui:define>
+</ui:composition>

@@ -1,0 +1,87 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui">
+                <h:head>
+              
+<title><ui:insert name="title" /></title>
+                </h:head>
+      <h:body>          	
+<p:layout fullPage="true">
+ 
+    <p:layoutUnit position="north" size="100" resizable="false" closable="false" collapsible="false">
+
+   	
+
+    </p:layoutUnit>
+ 
+ 
+    <p:layoutUnit position="west"  size="200" header="Menu" resizable="false" closable="false" collapsible="false">
+       <h:form>
+        
+
+    <p:menu toggleable="true" width="200">
+        
+        <p:submenu label="Event">
+            <p:menuitem value="Add Event"  url="/Admin/Event.jsf" icon="ui-icon-close"/>
+       		<p:menuitem value="Manage Event"  url="/Admin/UpdateEvent.jsf" icon="ui-icon-close"/>
+        	<p:menuitem value="Find Event"  url="/Admin/Filtrage.jsf" icon="ui-icon-close"/>
+        </p:submenu>
+        
+        
+        <p:submenu label="Statistics">
+            <p:menuitem value="Event By Type"  url="/Admin/offerchart.jsf"   icon="ui-icon-disk"  />
+            
+        </p:submenu>
+        
+       
+        
+       
+    </p:menu>
+        </h:form>
+        
+    </p:layoutUnit>
+ 
+    
+ 
+    <p:layoutUnit position="center">
+	
+	
+	<h:form>  
+			<div>Welcome    
+			  </div>  
+			   <div>
+			 
+			
+    <p:growl id="messages"/>
+ 
+    <p:menubar>
+    <p:menuitem value="Home" url="/User/Admin/TemplateAdmin.jsf" icon="ui-icon-home" />
+      <p:menuitem value="Profile" url="http://www.primefaces.org" icon="ui-icon-person" /> 
+            <p:menuitem value="Edit Profile" url="http://www.primefaces.org" icon="ui-icon-arrowrefresh-1-w" />   
+        
+        <p:menuitem value="Disable"   icon="ui-icon-locked" />
+ 
+        <f:facet name="options">
+            <p:inputText style="margin-right:10px" placeholder="Search"/>
+     <p:commandButton 
+					value="Logout" icon="ui-icon-extlink" />
+            
+
+         </f:facet>
+    </p:menubar>
+    </div>
+</h:form>
+	
+	
+	 
+
+<ui:insert name="content">
+
+</ui:insert>
+    </p:layoutUnit>
+ 
+</p:layout>
+</h:body>
+</html>

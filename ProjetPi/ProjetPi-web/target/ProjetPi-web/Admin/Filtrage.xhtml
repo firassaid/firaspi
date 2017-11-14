@@ -1,0 +1,39 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                 xmlns:p="http://primefaces.org/ui"
+               	template="/Admin/TemplateAdmin.xhtml">
+                
+                
+             
+			<ui:define name="content">
+				<h:form>
+				
+				 <p:dataTable var="car" value="#{serviceBean.JOF}" widgetVar="sousservicesTable"
+                 emptyMessage="No Event found with given criteria" filteredValue="#{serviceBean.filteredService}">
+                 <f:facet name="header">
+            <p:outputPanel>
+                <h:outputText value="Search all events:" />
+                <p:inputText id="globalFilter" onkeyup="PF('sousservicesTable').filter()" style="width:150px" placeholder="Enter keyword"/>
+            </p:outputPanel>
+        </f:facet>
+				    <p:column filterBy="#{car.type}" headerText="Type" footerText="contains" filterMatchMode="contains">
+            <h:outputText value="#{car.type}" />
+        </p:column>
+				 <p:column filterBy="#{car.description}" headerText="Description" footerText="contains" filterMatchMode="contains">
+            <h:outputText value="#{car.description}" />
+        </p:column>
+         <p:column filterBy="#{car.date_Debut}" headerText="Date Debut" footerText="contains" filterMatchMode="contains">
+            <h:outputText value="#{car.date_Debut}" />
+        </p:column>
+         <p:column filterBy="#{car.nom}" headerText="Nom" footerText="contains" filterMatchMode="contains">
+            <h:outputText value="#{car.nom}" />
+        </p:column>
+          <p:column filterBy="#{car.prix}" headerText="prix" footerText="contains" filterMatchMode="contains">
+            <h:outputText value="#{car.prix}" />
+        </p:column>
+				    </p:dataTable>
+				</h:form>
+			</ui:define>
+	</ui:composition>
